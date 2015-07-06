@@ -28,11 +28,9 @@ struct shmNum{
 
 //this struct is using for server user list
 struct shmList{
-	int flag[MAX_USER]; //flag this [] is using or not,set by lanuch loop for 1 and exit process for 0
-	int id[MAX_USER];		// the accounts id,set by lanuch loop
-	int pid[MAX_USER];	//the user process pid ,set by lanuch loop
-	int conn[MAX_USER];	//the user process socket fd
-	int party[MAX_USER];	//the user party
+	int conn;	//the user process socket fd
+	int id;		// the accounts id,set by lanuch loop
+	int party;	//the user party
 	//pid_t pid[MAX_USER];
 
 };

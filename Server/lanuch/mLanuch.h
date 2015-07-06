@@ -15,10 +15,7 @@
 #include "../proto/Proto.h"
 #include "../myDB/dbcpp/DBInterface.h"
 #include "../myDB/dbcpp/DBErr.h"
-#include "../include/Rdwr.h"
 #include "../struct/ShmServer.h"
-#include "../include/Func.h"
-#include "../include/InitFirst.h"
 #include "../include/BroadcastInterface.h"
 #include "../publicRoom/UpdateParty.h"
 #include "../include/InitGameStatus.h"
@@ -26,60 +23,8 @@
 
 using namespace std;
 
-/**
- *	before do others ,it must lanuch the account 
- *
- *
- *
- */
+static void mLanuchGame(int connfd,string ip,int id){
 
-
-extern struct shmList *listptr;
-extern struct shmNum *numptr;
-extern struct shmStatus *statusptr;
-
-extern sem_t *listmutex;
-extern sem_t *nummutex;
-extern sem_t *statusmutex;
-
-
-static void mLanuchGame(int connfd,string ip){
-
-	//check the game status,if it is running or is in the result,reject the lanuch
-	//
-	//only when in the room accept the lanuch
-	sem_wait(statusmutex);
-	if(IN_ROOM!=mstatusptr->status){
-			sem_post(statusmutex);
-			Err_toc *temp=new Err_toc(SERVER_IN_GAME);
-			writen(connfd,&temp->id,sizeof(Err_toc));
-			DelayTime(5);
-			exit(1);
-
-	}
-	sem_post(statusmutex);
-
-
-
-	//check the server user counter,if it bigger than MAX_USER,reject the new connections
-
-	
-	sem_wait(nummutex);
-	//check the user counter  in the server
-	if(numptr->counter>=MAX_USER){
-			cout<<"server full! can't accept anyone"<<endl;
-			Err_toc *temp=new Err_toc(SERVER_FULL);
-			writen(connfd,&temp->id,sizeof(Err_toc));
-			sem_post(nummutex);
-			DelayTime(5);
-			exit(1);
-	}
-	sem_post(nummutex);
-
-
-	
-	
-	
 	while(true){
 			int id=0;
 			int nread=read(connfd,&id,4);

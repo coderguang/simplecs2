@@ -16,9 +16,6 @@
 #include "../myDB/dbcpp/DBInterface.h"
 #include "../myDB/dbcpp/DBErr.h"
 #include "mLanuch.h"
-#include "../include/Rdwr.h"
-#include "../include/InitFirst.h"
-#include "../include/Func.h"
 #include "../publicRoom/UpdateParty.h"
 #include "../publicRoom/InRoom.h"
 using namespace std;
@@ -29,10 +26,6 @@ using namespace std;
 
 static void startProc(int connfd,string ip){
 
-	//every child process should call InitFirst at first
-	
-	InitFirst();
-	
 	//come to the lanuch loop
 	mLanuchGame(connfd,ip);
 	

@@ -18,7 +18,7 @@ static const int WARN=-3;
 static const int INFO=-4;
 static const int DEBUG=-5;
 */
-enum Level{FATAL,ERROR,WARN,INFO,DEBUG};
+enum Level{FATAL,ERR,WARN,INFO,DEBUG};
 /**
  *this is the log file typle*
  */

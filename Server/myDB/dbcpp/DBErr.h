@@ -1,7 +1,7 @@
 #ifndef DB_ERR_H_
 #define DB_ERR_H_
 
-static const int OK=0; 
+//static const int OK=0; 
 static const int UNKNOW=-1;
 
 

@@ -308,7 +308,7 @@ void Logger::Init(){
 		if(FATAL==level&&FATALFLAG){ 
 	//		cout<<"case to Fatal"<<endl;
 			LogMsg(type,msg,"Fatal");
-		}else if(ERROR==level&&ERRORFLAG){ 
+		}else if(ERR==level&&ERRORFLAG){ 
 			LogMsg(type,msg,"Error");
 		}else if(WARN==level&&WARNFLAG){
 			LogMsg(type,msg,"Warmming");

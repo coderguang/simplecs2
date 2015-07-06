@@ -13,9 +13,6 @@
 #include <fcntl.h>
 #include <iostream>
 #include "../proto/Proto.h"
-#include "../include/Rdwr.h"
-#include "../include/InitFirst.h"
-#include "../include/Func.h"
 #include "../publicRoom/UpdateParty.h"
 #include "../proto/ProtoID.h"
 #include "../struct/PersonData.h"
