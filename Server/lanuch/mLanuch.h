@@ -23,24 +23,9 @@
 
 using namespace std;
 
-static void mLanuchGame(int connfd,string ip,int id){
-
-	while(true){
-			int id=0;
-			int nread=read(connfd,&id,4);
-
-			if(nread<0){
-				if(errno!=EINTR&&errno==EPIPE){
-						cout<<"socket disconnections when try to lanuch...."<<endl;
-						close(connfd);
-						exit(1);
-				}else
-					 continue;			
-			}else if(0==nread)	/*EOF of the stream */
-					 continue;
+void mLanuchGame(int connfd,string ip,int pLanuchID){
 
 			if(pLanuchID==id){
-
 						Lanuch_tos *ptr=new Lanuch_tos();
 						memset(ptr,'\0',sizeof(Lanuch_tos));
 						readn(connfd,&ptr->error_code,sizeof(Lanuch_tos)-4);
@@ -61,7 +46,6 @@ static void mLanuchGame(int connfd,string ip,int id){
 							//save this to the shmList				
 
 							int partyTemp=0;//use to remember this account's party
-							sem_wait(listmutex);
 
 							//for(int i=0;i<MAX_USER;i++){
 							for(int i=0;i<3;i++){
@@ -70,7 +54,6 @@ static void mLanuchGame(int connfd,string ip,int id){
 
 										//server counter ++ and decide it's party and first to avoid when the process exit cause the exception
 										//cout<<"now server counter is "<<numptr->counter<<endl;
-										sem_wait(nummutex);
 							
 										if(numptr->blueCounter<=numptr->redCounter&&numptr->blueCounter<(MAX_USER/2)){
 												listptr->party[i]=BLUE;
@@ -86,15 +69,11 @@ static void mLanuchGame(int connfd,string ip,int id){
 												Err_toc *err=new Err_toc(SERVER_FULL);
 												writen(connfd,&err->id,sizeof(Err_toc));
 												
-												sem_post(nummutex);
-												sem_post(listmutex);	
-											
 												close(connfd);
 												exit(1);
 
 										}
 
-										sem_post(nummutex);
 
 										//if decide the party success,take it to list
 										listptr->flag[i]=1;//flag this is used
@@ -109,10 +88,6 @@ static void mLanuchGame(int connfd,string ip,int id){
 										break;
 								}
 							}					
-
-
-							sem_post(listmutex);
-		
 
 							LanuchResult_toc *result=new LanuchResult_toc(lanResult.name,lanResult.lastlanuch,lanResult.lastIP,lanResult.setting,lanResult.id);
 							//cout<<"name="<<result->name<<"  lastlanuch="<<result->lastLanuch<<"  lastip="<<result->lastIP<<"  setting="<<result->setting<<endl<<endl;

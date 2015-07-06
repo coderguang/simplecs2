@@ -3,4 +3,4 @@ server : server.o
 server.o : server.cpp Connection.h mLanuch.h ../publicRoom/InRoom.h ../publicRoom/UpdateParty.h  ../include/BroadcastInterface.h
 	g++ -c -g server.cpp Connection.h mLanuch.h ../publicRoom/InRoom.h ../publicRoom/UpdateParty.h ../include/BroadcastInterface.h -std=c++11 -I/usr/include/mysql -rdynamic -L/usr/lib64/mysql -lmysqlclient -lz -lcrypt -lm -lssl -lcrypto -lpthread -lrt 
 clean :
-	rm *.o server
+	rm *.o server *.gch  
