@@ -1,5 +1,0 @@
-mysql -uroot -pmaildb <<EOF
-use simplecs;
-update accounts set status=0;
-exit;
-
