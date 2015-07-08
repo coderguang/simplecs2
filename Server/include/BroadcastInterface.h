@@ -8,10 +8,8 @@
 //len: the size of the proto
 
 #include "../struct/ShmServer.h"
-#include "Rdwr.h"
 #include "../proto/Message.h"
-#include "InitFirst.h"
-
+#include "../../../ComLib/linuxLib/linHead.h"
 
 using namespace std;
 
@@ -21,53 +19,36 @@ static const int BLUE=1;
 static const int RED=2;
 static const int ALL=3; 
 
-extern struct shmList *listptr;
-extern struct shmNum *numptr;
-extern sem_t *listmutex;
-extern sem_t *nummutex;
+extern struct shmList client[MAX_USER];
 
 //make a for loop to get the shmList's socket fd,check it flag does't it value or not
-void mBroadcast(int type,Message	*msg,size_t len){
-			
-
-			sem_wait(listmutex);			
-			//cout<<"come to the broadcast,type="<<type<<endl;
-			/**
-			for(int i=0;i<MAX_USER;i++){
-				cout<<"in cast:i="<<i<<" flag="<<listptr->flag[i]<<" id="<<listptr->id[i]<<" pid="<<listptr->pid[i]<<endl;
-			}**/
+void mBroadcast(int type,Message *msg,size_t len){
 
 			if(BLUE==type){  //if this should be broadcast to blue party
 						for(int i=0;i<MAX_USER;i++){
-								if(1==listptr->flag[i]){  //if this is value
-										if(BLUE==listptr->party[i]){
-													cout<<"i="<<i<<" write to blue id="<<listptr->id[i]<<endl;
-													writen(listptr->conn[i],msg,len);	//broadcast this proto to the socket fd;
+								if(client[i].conn>0){  //if this is value
+										if(BLUE==client[i].party){
+													Writen(client[i].conn,msg,len);	//broadcast this proto to the socket fd;
 											}	
 								}
 						}
 			}else if(RED==type){  //if this should be broadcast to red party
 						for(int i=0;i<MAX_USER;i++){
-								if(1==listptr->flag[i]){  //if this is value
-										if(RED==listptr->party[i]){
-													cout<<"i="<<i<<" write to red id="<<listptr->id[i]<<endl;
-													writen(listptr->conn[i],msg,len);	//broadcast this proto to the socket fd;
+								if(client[i].conn>0){  //if this is value
+										if(RED==client[i].party){
+													Writen(client[i].conn,msg,len);	//broadcast this proto to the socket fd;
 											}	
 								}
 						}
 			}else if(ALL==type){  //if this should be broadcast to blue party
 						for(int i=0;i<MAX_USER;i++){
-								if(1==listptr->flag[i]){  //if this is value
-													cout<<"i="<<i<<" write to all id="<<listptr->id[i]<<endl;
-													writen(listptr->conn[i],msg,len);	//broadcast this proto to the socket fd;
+								if(client[i].conn>0){  //if this is value
+										Writen(client[i].conn,msg,len);	//broadcast this proto to the socket fd;
 								}	
 
 						}
 			}						
 		
-			sem_post(listmutex);
-						
-			//cout<<"out of broadcast"<<endl;
 }
 		
 

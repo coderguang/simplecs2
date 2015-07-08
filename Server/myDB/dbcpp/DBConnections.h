@@ -8,12 +8,12 @@
 #include <iostream>
 //#include <mutex>  //do not make it to be a background process like log
 #include "DBErr.h"
-#include "../../include/Func.h"
 #include "../../struct/lanuch.h"
 #include "../../struct/result.h"
 #include "../../struct/resultAll.h"
 #include "../../log/LogInterface.h"
 #include "DBConstant.h"
+#include "../../../../ComLib/linuxLib/linComNet.h"
 
 using namespace std;
 
