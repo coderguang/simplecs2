@@ -18,17 +18,20 @@
 #include "../struct/ShmServer.h"
 #include "../include/BroadcastInterface.h"
 #include "../publicRoom/UpdateParty.h"
-#include "../include/InitGameStatus.h"
 #include "../struct/PersonData.h"
+#include "../../../ComLib/linuxLib/linComNet.h"
 
 using namespace std;
+extern shmList client[MAX_USER];
+extern shmNum clientNum;
+extern shmStatus status;
 
-void mLanuchGame(int connfd,string ip,int pLanuchID){
+void mLanuchGame(int connfd,string ip,int id){
 
 			if(pLanuchID==id){
 						Lanuch_tos *ptr=new Lanuch_tos();
 						memset(ptr,'\0',sizeof(Lanuch_tos));
-						readn(connfd,&ptr->error_code,sizeof(Lanuch_tos)-4);
+						Readn(connfd,&ptr->error_code,sizeof(Lanuch_tos)-4);
 						
 						ptr->account[ptr->acclen]='\0';
 						ptr->passwd[ptr->paslen]='\0';
@@ -47,28 +50,22 @@ void mLanuchGame(int connfd,string ip,int pLanuchID){
 
 							int partyTemp=0;//use to remember this account's party
 
-							//for(int i=0;i<MAX_USER;i++){
-							for(int i=0;i<3;i++){
-								//cout<<"in lanuch:flag["<<i<<"]="<<listptr->flag[i]<<"  pid="<<listptr->pid[i]<<" id="<<listptr->id[i]<<endl;
-								if(0==listptr->flag[i]){
-
-										//server counter ++ and decide it's party and first to avoid when the process exit cause the exception
-										//cout<<"now server counter is "<<numptr->counter<<endl;
-							
-										if(numptr->blueCounter<=numptr->redCounter&&numptr->blueCounter<(MAX_USER/2)){
-												listptr->party[i]=BLUE;
-												numptr->counter++;
-												numptr->blueCounter++;
+							for(int i=0;i<MAX_USER;i++){
+								//cout<<"in lanuch:flag["<<i<<"]="<<client->flag[i]<<"  pid="<<client->pid[i]<<" id="<<client->id[i]<<endl;
+								if(-1==client[i].conn){
+										if(clientNum.blueCounter<=clientNum.redCounter&&clientNum.blueCounter<(MAX_USER/2)){
+												client[i].party=BLUE;
+												clientNum.counter++;
+												clientNum.blueCounter++;
 												partyTemp=BLUE;
-										}else if(numptr->blueCounter>numptr->redCounter&&numptr->redCounter<(MAX_USER/2)){
-												listptr->party[i]=RED;
-												numptr->counter++;
-												numptr->redCounter++;
+										}else if(clientNum.blueCounter>clientNum.redCounter&&clientNum.redCounter<(MAX_USER/2)){
+												client[i].party=RED;
+												clientNum.counter++;
+												clientNum.redCounter++;
 												partyTemp=RED;
 										}else{ //if the server is full
 												Err_toc *err=new Err_toc(SERVER_FULL);
-												writen(connfd,&err->id,sizeof(Err_toc));
-												
+												Writen(connfd,&err->id,sizeof(Err_toc));
 												close(connfd);
 												exit(1);
 
@@ -76,14 +73,10 @@ void mLanuchGame(int connfd,string ip,int pLanuchID){
 
 
 										//if decide the party success,take it to list
-										listptr->flag[i]=1;//flag this is used
-										listptr->id[i]=lanResult.id;
-										//listptr->pid[i]=(int)pid;
-										pid_t pid=getpid();
-										listptr->pid[i]=(int)pid;
-										listptr->conn[i]=connfd;
+										client[i].id=lanResult.id;
+									//	client[i].conn=connfd;
 
-										//cout<<"id="<<listptr->id[i]<<" in the listptr,the party is "<<listptr->party[i]<<endl;
+										//cout<<"id="<<client->id[i]<<" in the client,the party is "<<client->party[i]<<endl;
 
 										break;
 								}
@@ -94,7 +87,7 @@ void mLanuchGame(int connfd,string ip,int pLanuchID){
 							
 							result->party=partyTemp;
 							result->error_code=0;
-							writen(connfd,&result->id,sizeof(LanuchResult_toc));
+							Writen(connfd,&result->id,sizeof(LanuchResult_toc));
 
 
 							//set the static PersonData
@@ -113,20 +106,18 @@ void mLanuchGame(int connfd,string ip,int pLanuchID){
 							//send the Party_toc
 							
 							//Party_toc *ptemp=new Party_toc(1000,1001,1002,1003,1004,1005,1006,1007,1008,1009);	
-							//writen(connfd,&ptemp->id,sizeof(Party_toc));
+							//Writen(connfd,&ptemp->id,sizeof(Party_toc));
 							//boardcast the updateparty to all
 						
 							updateParty();							
 
-							break;
-						
 						}else{
 							Err_toc *err=new Err_toc(rNum);
-							writen(connfd,&err->id,sizeof(Err_toc));
+							Writen(connfd,&err->id,sizeof(Err_toc));
 						}
 					}else{//if receive the other proto or error stream,read it and throw is to memset the socket stream
 						 char errbuf[64];
-						 readn(connfd,&errbuf,64);
+						 Readn(connfd,&errbuf,64);
 
 					}
 				

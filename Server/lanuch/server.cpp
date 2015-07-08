@@ -1,13 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include "../log/LogInterface.h"
-#include "../include/Func.h"
 #include "NetConstant.h"
-#include "Connection.h"
 #include "../struct/ShmServer.h"
-#include "../gameOver/Sig_exit.h"
 #include "../../../ComLib/linuxLib/linComNet.h"
+#include "../../../ComLib/linuxLib/Func.h"
 /**
  *this is the server main process
  *all user process are fork from this process
@@ -107,7 +104,7 @@ int main(){
 					FD_CLR(sockfd,&allset);
 					client[i].connfd=-1;
 				}else{
-					cout<<"get the msg ,id="<<endl;
+					cout<<"get the msg ,id="<<id<<endl;
 				}
 			}
 			if(nready<=0){
