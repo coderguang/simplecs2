@@ -2,9 +2,12 @@
 #include <stdio.h>
 #include <iostream>
 #include "NetConstant.h"
-#include "../struct/ShmServer.h"
-#include "../../../ComLib/linuxLib/linComNet.h"
-#include "../../../ComLib/linuxLib/Func.h"
+#include "../../ComLib/linuxLib/linHead.h"
+#include "../SerStruct.h"
+#include <strings.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <arpa/inet.h>
 /**
  *this is the server main process
  *all user process are fork from this process
@@ -14,21 +17,18 @@
  */
 
 
-//init some struct 
-shmList client[MAX_USER];
-shmNumber clientNum;
-shmStatus status;
+SerList client[MAX_USER];
+SerNum clientNum;
+SerStatus gameStatus;
 
-fd_set rset,allset;
-
-
-int main(){
+int main(int argc,char **argv){
 	int maxfd,listenfd,sockfd,connfd;	//the  listen  fd
 	int sel[FD_SETSIZE];
+	fd_set rset,allset;
 	int nready;
 	
 	ssize_t n;
-	socklen_t clien;
+	socklen_t clilen;
 
 	struct sockaddr_in cliaddr;	//client addr
 	struct sockaddr_in servaddr;	//server addr
@@ -50,7 +50,7 @@ int main(){
 	maxfd=listenfd;
 	
 	for(int i=0;i<MAX_USER;i++){
-		client[i].conn=-1;
+		client[i].connfd=-1;
 		client[i].id=-1;
 		client[i].party=-1;	
 	}
@@ -71,8 +71,9 @@ int main(){
 			
 			int i;
 			for(i=0;i<MAX_USER;i++){
-				if(client[i]<0){
-					client[i].conn=connfd;
+				if(client[i].connfd<0){
+					client[i].connfd=connfd;
+					cout<<"connfd="<<connfd<<"  is connecting"<<endl;
 					break;
 				}
 			}
@@ -81,7 +82,7 @@ int main(){
 				cout<<"sockfd is full"<<endl;
 			}
 
-			FD_SET(CONNFD,&allset);//add new conn to set
+			FD_SET(connfd,&allset);//add new conn to set
 		
 			if(nready<=0){
 				continue;
@@ -92,16 +93,17 @@ int main(){
 		
 		//get data
 		for(int i=0;i<MAX_USER;i++){
-			if((sockfd=client[i].conn)<0){
+			if((sockfd=client[i].connfd)<0){
 				continue;
 			}
 			
 			if(FD_ISSET(sockfd,&rset)){
 				int id=0;
 				int nread;
-				if((nread=Read(sockfd,id,4))==0){
+				if((nread=Read(sockfd,&id,4))==0){
 					Close(sockfd);
 					FD_CLR(sockfd,&allset);
+					cout<<"socket = "<<client[i].connfd<<" is disconnect.."<<endl;
 					client[i].connfd=-1;
 				}else{
 					cout<<"get the msg ,id="<<id<<endl;

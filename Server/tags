@@ -1,0 +1,360 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACCOUNTSIZE	proto/Lanuch_tos.h	/^static const int ACCOUNTSIZE=8;$/;"	v
+ACCOUNT_ERR_IDENTITY	proto/Err_toc.h	/^static const int ACCOUNT_ERR_IDENTITY=6100;\/\/use for forget the passwd to reset the passwd$/;"	v
+ACCOUNT_ERR_PASSWD	proto/Err_toc.h	/^static const int ACCOUNT_ERR_PASSWD=6200;\/\/use for lanuch when passwd no matching the account$/;"	v
+ACCOUNT_HADREGIT	proto/Err_toc.h	/^static const int ACCOUNT_HADREGIT=6000;\/\/use for regit accounts$/;"	v
+ACCOUNT_HAD_LANUCH	proto/Err_toc.h	/^static const int ACCOUNT_HAD_LANUCH=6300;\/\/the account is lanuch and using now$/;"	v
+ACCOUNT_IS_USING	myDB/dbcpp/DBErr.h	/^static const int ACCOUNT_IS_USING=6300;$/;"	v
+ACCOUNT_PASSWD_ERROR	myDB/dbcpp/DBErr.h	/^static const int ACCOUNT_PASSWD_ERROR=6200;$/;"	v
+ALL	include/BroadcastInterface.h	/^static const int ALL=3; $/;"	v
+BACKLOG	lanuch/NetConstant.h	/^const int BACKLOG=10;$/;"	v
+BLUE	include/BroadcastInterface.h	/^static const int BLUE=1;$/;"	v
+BROARDCAST_INTERFACE_H_	include/BroadcastInterface.h	2;"	d
+CHAT_TOCS_H_	proto/Chat_tocs.h	2;"	d
+CONNECTION_H_	lanuch/Connection.h	2;"	d
+Chat_tocs	proto/Chat_tocs.h	/^		Chat_tocs(){$/;"	f	class:Chat_tocs
+Chat_tocs	proto/Chat_tocs.h	/^		Chat_tocs(int uid,int t,string ms){$/;"	f	class:Chat_tocs
+Chat_tocs	proto/Chat_tocs.h	/^class Chat_tocs:public Message{$/;"	c
+CheckAccount	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::CheckAccount(string account){$/;"	f	class:DBConnections
+CheckAccount	myDB/dbcpp/DBInterface.h	/^int CheckAccount(string account){$/;"	f
+Close	myDB/dbcpp/DBConnections.cpp	/^	void DBConnections::Close(){$/;"	f	class:DBConnections
+ConnType	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	g
+DBCONNECTIONS_H_	myDB/dbcpp/DBConnections.h	2;"	d
+DBClose	myDB/dbcpp/DBConnections.cpp	/^void DBConnections::DBClose(){$/;"	f	class:DBConnections
+DBClose	myDB/dbcpp/DBInterface.h	/^static void DBClose(){$/;"	f
+DBConnections	myDB/dbcpp/DBConnections.cpp	/^DBConnections::DBConnections(){$/;"	f	class:DBConnections
+DBConnections	myDB/dbcpp/DBConnections.h	/^class DBConnections$/;"	c
+DBERROR	myDB/dbcpp/DBErr.h	/^static const int DBERROR=5000;$/;"	v
+DBINTERFACE_H_	myDB/dbcpp/DBInterface.h	2;"	d
+DBLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+DB_CONSTANT_H_	myDB/dbcpp/DBConstant.h	2;"	d
+DB_ERR_H_	myDB/dbcpp/DBErr.h	2;"	d
+DEBUG	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	e	enum:Level
+DEBUGFLAG	log/LogConstant.h	/^static const bool DEBUGFLAG=true;$/;"	v
+ERR	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	e	enum:Level
+ERRORFLAG	log/LogConstant.h	/^static const bool ERRORFLAG=true;$/;"	v
+ERR_IDENTITY	myDB/dbcpp/DBErr.h	/^static const int ERR_IDENTITY=6100;$/;"	v
+ERR_TOC_H_	proto/Err_toc.h	2;"	d
+Err_toc	proto/Err_toc.h	/^		Err_toc(int errcode){$/;"	f	class:Err_toc
+Err_toc	proto/Err_toc.h	/^class Err_toc:public Message{$/;"	c
+ExitLanuch	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::ExitLanuch(int id){$/;"	f	class:DBConnections
+ExitLanuch	myDB/dbcpp/DBInterface.h	/^void ExitLanuch(int id){$/;"	f
+FATAL	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	e	enum:Level
+FATALFLAG	log/LogConstant.h	/^static const bool FATALFLAG=true; $/;"	v
+ForgetPasswd	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::ForgetPasswd(string account,string email,int question,string answer){$/;"	f	class:DBConnections
+ForgetPasswd	myDB/dbcpp/DBInterface.h	/^int ForgetPasswd(string account,string email,int questionID,string answer){$/;"	f
+FreeResult	myDB/dbcpp/DBConnections.cpp	/^void DBConnections::FreeResult(MYSQL_RES **res){$/;"	f	class:DBConnections
+GAMEING_H_	game/Gameing.h	2;"	d
+GAME_START_TOCS_H_	proto/GameStart_tocs.h	2;"	d
+GETRESULT	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	e	enum:ConnType
+GameStart_tocs	proto/GameStart_tocs.h	/^	GameStart_tocs(){$/;"	f	class:GameStart_tocs
+GameStart_tocs	proto/GameStart_tocs.h	/^class GameStart_tocs:public Message{$/;"	c
+GetError_code	proto/Message.h	/^	int GetError_code(){$/;"	f	class:Message
+GetFree	myDB/dbcpp/DBConnections.cpp	/^MMYSQL *DBConnections::GetFree(ConnType type){$/;"	f	class:DBConnections
+GetID	proto/Message.h	/^	int GetID()const{$/;"	f	class:Message
+GetInstance	log/Logger.cpp	/^	Logger *Logger::GetInstance(){$/;"	f	class:Logger
+GetInstance	myDB/dbcpp/DBConnections.cpp	/^DBConnections *DBConnections::GetInstance(){$/;"	f	class:DBConnections
+GetResult	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::GetResult(int resultID,struct ResultAll &resultA){$/;"	f	class:DBConnections
+GetResult	myDB/dbcpp/DBInterface.h	/^static int GetResult(int resultID,ResultAll &result){$/;"	f
+GetResultLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+HAD_REGIT	myDB/dbcpp/DBErr.h	/^static const int HAD_REGIT=6000;$/;"	v
+INFO	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	e	enum:Level
+INFOFLAG	log/LogConstant.h	/^static const bool INFOFLAG=true;$/;"	v
+IN_GAME	struct/ShmServer.h	/^static const int IN_GAME=2;$/;"	v
+IN_RESULT	struct/ShmServer.h	/^static const int IN_RESULT=3;$/;"	v
+IN_ROOM	struct/ShmServer.h	/^static const int IN_ROOM=1;$/;"	v
+IN_ROOM_H_	publicRoom/InRoom.h	2;"	d
+InGameLoop	game/Gameing.h	/^void InGameLoop(int connfd,int id){$/;"	f
+InRoomLoop	publicRoom/InRoom.h	/^void InRoomLoop(int connfd,int id){$/;"	f
+Init	log/Logger.cpp	/^void Logger::Init(){$/;"	f	class:Logger
+InitLog	log/LogInterface.h	/^static void InitLog(){$/;"	f
+InsertResult	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::InsertResult(struct ResultAll &resultA){ $/;"	f	class:DBConnections
+InsertResult	myDB/dbcpp/DBInterface.h	/^int InsertResult(ResultAll &result){$/;"	f
+LANUCH	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	e	enum:ConnType
+LANUCHRESULT_TOC_H_	proto/LanuchResult_toc.h	2;"	d
+LANUCH_H_	struct/lanuch.h	2;"	d
+LANUCH_TOS_h_	proto/Lanuch_tos.h	2;"	d
+LASTIPSIZE	proto/LanuchResult_toc.h	/^static const int LASTIPSIZE=16;$/;"	v
+LASTLANUCHSIZE	proto/LanuchResult_toc.h	/^static const int LASTLANUCHSIZE=32;$/;"	v
+LOG_CONSTANT_H_	log/LogConstant.h	2;"	d
+LOG_INTERFACE_H_	log/LogInterface.h	2;"	d
+Lanuch	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::Lanuch(string account,string passwd,string ip,struct Lanuch &lanResult){$/;"	f	class:DBConnections
+Lanuch	struct/lanuch.h	/^struct Lanuch{$/;"	s
+LanuchAccount	myDB/dbcpp/DBInterface.h	/^int LanuchAccount(string account,string passwd,string ip,Lanuch &lanResult){$/;"	f
+LanuchLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+LanuchResult_toc	proto/LanuchResult_toc.h	/^		LanuchResult_toc(){$/;"	f	class:LanuchResult_toc
+LanuchResult_toc	proto/LanuchResult_toc.h	/^		LanuchResult_toc(string n,string lastTime,string lastip,int s,int a_id){$/;"	f	class:LanuchResult_toc
+LanuchResult_toc	proto/LanuchResult_toc.h	/^class LanuchResult_toc:public Message$/;"	c
+Lanuch_tos	proto/Lanuch_tos.h	/^		Lanuch_tos(){$/;"	f	class:Lanuch_tos
+Lanuch_tos	proto/Lanuch_tos.h	/^class Lanuch_tos:public Message$/;"	c
+Level	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	g
+Log	log/LogInterface.h	/^static void Log(LogType type,Level level,string msg){$/;"	f
+Log	log/Logger.cpp	/^	void Logger::Log(LogType type,Level level,string &msg){$/;"	f	class:Logger
+LogDBMsg	log/Logger.cpp	/^	void Logger::LogDBMsg(){$/;"	f	class:Logger
+LogGetResultMsg	log/Logger.cpp	/^	void Logger::LogGetResultMsg(){$/;"	f	class:Logger
+LogLanuchMsg	log/Logger.cpp	/^	void Logger::LogLanuchMsg(){$/;"	f	class:Logger
+LogMsg	log/Logger.cpp	/^	void Logger::LogMsg(LogType type,string &msg,string typeMsg){$/;"	f	class:Logger
+LogRegitMsg	log/Logger.cpp	/^	void Logger::LogRegitMsg(){$/;"	f	class:Logger
+LogResultMsg	log/Logger.cpp	/^	void Logger::LogResultMsg(){$/;"	f	class:Logger
+LogType	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	g
+LogUpdatePasswdMsg	log/Logger.cpp	/^	void Logger::LogUpdatePasswdMsg(){$/;"	f	class:Logger
+Logger	log/Logger.cpp	/^	Logger::Logger(){$/;"	f	class:Logger
+Logger	log/Logger.h	/^class Logger{$/;"	c
+MAXMSG	struct/shmLog.h	/^const int MAXMSG=32;\/\/the max msg counter$/;"	v
+MAXSIZE	lanuch/NetConstant.h	/^const int MAXSIZE=2048;\/\/max msg$/;"	v
+MAX_CHAT_SIZE	proto/Chat_tocs.h	/^static const int MAX_CHAT_SIZE=32;$/;"	v
+MAX_USER	struct/ShmServer.h	/^static const int MAX_USER=10;$/;"	v
+MESSAGE_H_	proto/Message.h	2;"	d
+MLANUCH_H_	lanuch/mLanuch.h	2;"	d
+MMYSQL	myDB/dbcpp/DBConstant.h	/^struct MMYSQL{$/;"	s
+MSGSIZE	struct/shmLog.h	/^const int MSGSIZE=256;\/\/the msg max size$/;"	v
+M_LOG_H_	log/Logger.h	2;"	d
+Message	proto/Message.h	/^class Message{$/;"	c
+MyQuery	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::MyQuery(ConnType type,string sql,MYSQL_RES **res){$/;"	f	class:DBConnections
+NAMESIZE	proto/LanuchResult_toc.h	/^static const int NAMESIZE=8;$/;"	v
+NET_CONSTANT_	lanuch/NetConstant.h	2;"	d
+NO_FREE_CONN	myDB/dbcpp/DBErr.h	/^static const int NO_FREE_CONN=5030;$/;"	v
+PACKSIZE	proto/ProtoID.h	/^const int PACKSIZE=1;$/;"	v
+PARTY_CHANGE_TOCS_H_	proto/Party_change_tocs.h	2;"	d
+PARTY_IS_FULL	proto/Err_toc.h	/^static const int PARTY_IS_FULL=7000;\/\/the party is full of user,can't join in$/;"	v
+PARTY_NO_CHANGE	proto/Err_toc.h	/^static const int PARTY_NO_CHANGE=7100;\/\/party no change$/;"	v
+PARTY_TOC_H_	proto/Party_toc.h	2;"	d
+PASSWDSIZE	proto/Lanuch_tos.h	/^static const int PASSWDSIZE=16;$/;"	v
+PERSONDATA_H_	struct/PersonData.h	2;"	d
+PORT	lanuch/NetConstant.h	/^const int PORT=9201;\/\/server open  port$/;"	v
+POS_TOCS_H_	proto/Pos_tocs.h	2;"	d
+PROTO_H_	proto/Proto.h	6;"	d
+Party_change_tocs	proto/Party_change_tocs.h	/^		Party_change_tocs(){$/;"	f	class:Party_change_tocs
+Party_change_tocs	proto/Party_change_tocs.h	/^class Party_change_tocs:public Message{$/;"	c
+Party_toc	proto/Party_toc.h	/^	 Party_toc(){$/;"	f	class:Party_toc
+Party_toc	proto/Party_toc.h	/^	Party_toc(int rr1,int rr2,int rr3,int rr4,int rr5,int bb1,int bb2,int bb3,int bb4,int bb5){$/;"	f	class:Party_toc
+Party_toc	proto/Party_toc.h	/^class Party_toc:public Message{$/;"	c
+PersonData	struct/PersonData.h	/^class PersonData{$/;"	c
+Pos_tocs	proto/Pos_tocs.h	/^class Pos_tocs:public Message{$/;"	c
+RED	include/BroadcastInterface.h	/^static const int RED=2;$/;"	v
+REGIT	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	e	enum:ConnType
+RESULT	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	e	enum:ConnType
+RESULT_ALL_H_	struct/resultAll.h	2;"	d
+RESULT_H_	struct/result.h	2;"	d
+RESULT_NOT_EXIST	myDB/dbcpp/DBErr.h	/^static const int RESULT_NOT_EXIST=7000;$/;"	v
+RegitAccount	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::RegitAccount(string account,string passwd,string email,string name,int question,string answer){$/;"	f	class:DBConnections
+RegitAccount	myDB/dbcpp/DBInterface.h	/^int RegitAccount(string account,string passwd,string email,string name,int questionID,string answer){$/;"	f
+RegitLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+ResetPasswd	myDB/dbcpp/DBConnections.cpp	/^int DBConnections::ResetPasswd(string account,string newPasswd){$/;"	f	class:DBConnections
+ResetPasswd	myDB/dbcpp/DBInterface.h	/^int ResetPasswd(string account,string newPasswd){$/;"	f
+Result	struct/result.h	/^struct Result{$/;"	s
+ResultAll	struct/resultAll.h	/^struct ResultAll{$/;"	s
+ResultLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+SECURE	myDB/dbcpp/DBConnections.h	/^enum ConnType{REGIT,LANUCH,SECURE,RESULT,GETRESULT};$/;"	e	enum:ConnType
+SERVER_FULL	proto/Err_toc.h	/^static const int SERVER_FULL=5888; \/\/server is full!$/;"	v
+SERVER_IN_GAME	proto/Err_toc.h	/^static const int SERVER_IN_GAME=6600;\/\/game is running,the game status is 2$/;"	v
+SHM_LOG_	struct/shmLog.h	2;"	d
+SHM_SERVER_	struct/ShmServer.h	2;"	d
+SQL_NULL	myDB/dbcpp/DBErr.h	/^static const int SQL_NULL=5010;$/;"	v
+TYPE_ERROR	myDB/dbcpp/DBErr.h	/^static const int TYPE_ERROR=5020;$/;"	v
+UNKNOW	myDB/dbcpp/DBErr.h	/^static const int UNKNOW=-1;$/;"	v
+UPDATE_PARTY_H_	publicRoom/UpdateParty.h	2;"	d
+UpdatePasswdLog	log/LogConstant.h	/^enum LogType{DBLog,LanuchLog,RegitLog,UpdatePasswdLog,ResultLog,GetResultLog};$/;"	e	enum:LogType
+WARN	log/LogConstant.h	/^enum Level{FATAL,ERR,WARN,INFO,DEBUG};$/;"	e	enum:Level
+WARNFLAG	log/LogConstant.h	/^static const bool WARNFLAG=true;$/;"	v
+acclen	proto/Lanuch_tos.h	/^		int acclen;$/;"	m	class:Lanuch_tos
+account	proto/Lanuch_tos.h	/^		char account[ACCOUNTSIZE];$/;"	m	class:Lanuch_tos
+account_id	proto/LanuchResult_toc.h	/^		int account_id;$/;"	m	class:LanuchResult_toc
+allset	lanuch/server.cpp	/^fd_set rset,allset;$/;"	v
+assist	struct/result.h	/^	int assist;$/;"	m	struct:Result
+b1	proto/GameStart_tocs.h	/^	int b1=0;$/;"	m	class:GameStart_tocs
+b2	proto/GameStart_tocs.h	/^	int b2=0;$/;"	m	class:GameStart_tocs
+b3	proto/GameStart_tocs.h	/^	int b3=0;$/;"	m	class:GameStart_tocs
+b4	proto/GameStart_tocs.h	/^	int b4=0;$/;"	m	class:GameStart_tocs
+b5	proto/GameStart_tocs.h	/^	int b5=0;$/;"	m	class:GameStart_tocs
+blue	proto/Party_toc.h	/^	int blue[MAX_USER\/2];$/;"	m	class:Party_toc
+blue1	struct/resultAll.h	/^	Result blue1;$/;"	m	struct:ResultAll
+blue2	struct/resultAll.h	/^	Result blue2;$/;"	m	struct:ResultAll
+blue3	struct/resultAll.h	/^	Result blue3;$/;"	m	struct:ResultAll
+blue4	struct/resultAll.h	/^	Result blue4;$/;"	m	struct:ResultAll
+blue5	struct/resultAll.h	/^	Result blue5;$/;"	m	struct:ResultAll
+blueCounter	struct/ShmServer.h	/^	int blueCounter; \/\/ the blue party counter;$/;"	m	struct:shmNum
+client	lanuch/server.cpp	/^shmList client[MAX_USER];$/;"	v
+clientNum	lanuch/server.cpp	/^shmNumber clientNum;$/;"	v
+conn	myDB/dbcpp/DBConstant.h	/^	MYSQL *conn;$/;"	m	struct:MMYSQL
+conn	struct/ShmServer.h	/^	int conn;	\/\/the user process socket fd$/;"	m	struct:shmList
+counter	struct/ShmServer.h	/^	int counter;	\/\/the server user counter;$/;"	m	struct:shmNum
+data	struct/ShmServer.h	/^	PersonData data;$/;"	m	struct:shmList
+database	myDB/dbcpp/DBConstant.h	/^const string database = "simplecs";$/;"	v
+dbFile	log/Logger.h	/^	string dbFile="log\/dbLog";$/;"	m	class:Logger
+dbInstance	myDB/dbcpp/DBConnections.cpp	/^DBConnections *DBConnections::dbInstance=nullptr;$/;"	m	class:DBConnections	file:
+dbInstance	myDB/dbcpp/DBConnections.h	/^	static DBConnections *dbInstance;$/;"	m	class:DBConnections
+dbLog	log/Logger.h	/^	ofstream dbLog;$/;"	m	class:Logger
+dbMutex	log/Logger.h	/^	mutex dbMutex;$/;"	m	class:Logger
+dbQueue	log/Logger.h	/^	queue<string> dbQueue;$/;"	m	class:Logger
+dbStart	log/Logger.h	/^	bool dbStart;$/;"	m	class:Logger
+dbStartMutex	log/Logger.h	/^	mutex dbStartMutex;$/;"	m	class:Logger
+dbStartVar	log/Logger.h	/^	condition_variable dbStartVar;$/;"	m	class:Logger
+dbThread	log/Logger.h	/^	thread dbThread;$/;"	m	class:Logger
+dbVar	log/Logger.h	/^	condition_variable dbVar;$/;"	m	class:Logger
+death	struct/result.h	/^	int death;$/;"	m	struct:Result
+errCodeID	proto/ProtoID.h	/^static const int errCodeID=3999;$/;"	v
+error_code	proto/Message.h	/^	int error_code;$/;"	m	class:Message
+flag	myDB/dbcpp/DBConstant.h	/^	int flag;\/\/flag is it free,0 is free,1 is busy $/;"	m	struct:MMYSQL
+gameStartID	proto/ProtoID.h	/^static const int gameStartID=1900;$/;"	v
+getHarm	struct/result.h	/^	long getHarm;$/;"	m	struct:Result
+getResult	myDB/dbcpp/DBConnections.h	/^	MMYSQL *getResult;$/;"	m	class:DBConnections
+getResultFile	log/Logger.h	/^	string getResultFile="log\/getResultLog";$/;"	m	class:Logger
+getResultLog	log/Logger.h	/^	ofstream getResultLog;$/;"	m	class:Logger
+getResultMutex	log/Logger.h	/^	mutex getResultMutex;$/;"	m	class:Logger
+getResultPasswd	myDB/dbcpp/DBConstant.h	/^const string getResultPasswd = "getResulter";$/;"	v
+getResultQueue	log/Logger.h	/^	queue<string> getResultQueue;$/;"	m	class:Logger
+getResultStart	log/Logger.h	/^	bool getResultStart;$/;"	m	class:Logger
+getResultStartMutex	log/Logger.h	/^	mutex getResultStartMutex;$/;"	m	class:Logger
+getResultStartVar	log/Logger.h	/^	condition_variable getResultStartVar;$/;"	m	class:Logger
+getResultThread	log/Logger.h	/^	thread getResultThread;$/;"	m	class:Logger
+getResultUser	myDB/dbcpp/DBConstant.h	/^const string getResultUser = "getResultUser";$/;"	v
+getResultVar	log/Logger.h	/^	condition_variable getResultVar;$/;"	m	class:Logger
+harm	struct/result.h	/^	long harm;$/;"	m	struct:Result
+id	proto/Message.h	/^	int id;$/;"	m	class:Message
+id	struct/ShmServer.h	/^	int id;		\/\/ the accounts id,set by lanuch loop$/;"	m	struct:shmList
+id	struct/lanuch.h	/^	int id;$/;"	m	struct:Lanuch
+id	struct/result.h	/^	int id;$/;"	m	struct:Result
+initDB	myDB/dbcpp/DBConnections.cpp	/^void DBConnections::initDB(){ $/;"	f	class:DBConnections
+iplen	proto/LanuchResult_toc.h	/^		int iplen;$/;"	m	class:LanuchResult_toc
+kill	struct/result.h	/^	int kill;$/;"	m	struct:Result
+lanuch	myDB/dbcpp/DBConnections.h	/^	MMYSQL *lanuch;$/;"	m	class:DBConnections
+lanuchFile	log/Logger.h	/^	string lanuchFile="log\/lanuchLog";$/;"	m	class:Logger
+lanuchLog	log/Logger.h	/^	ofstream lanuchLog;$/;"	m	class:Logger
+lanuchMutex	log/Logger.h	/^	mutex lanuchMutex;$/;"	m	class:Logger
+lanuchPasswd	myDB/dbcpp/DBConstant.h	/^const string lanuchPasswd = "lanucher";$/;"	v
+lanuchQueue	log/Logger.h	/^	queue<string> lanuchQueue;$/;"	m	class:Logger
+lanuchStart	log/Logger.h	/^	bool lanuchStart;$/;"	m	class:Logger
+lanuchStartMutex	log/Logger.h	/^	mutex lanuchStartMutex;$/;"	m	class:Logger
+lanuchStartVar	log/Logger.h	/^	condition_variable lanuchStartVar;$/;"	m	class:Logger
+lanuchThread	log/Logger.h	/^	thread lanuchThread;$/;"	m	class:Logger
+lanuchUser	myDB/dbcpp/DBConstant.h	/^const string lanuchUser = "lanuchUser";$/;"	v
+lanuchVar	log/Logger.h	/^	condition_variable lanuchVar;$/;"	m	class:Logger
+lastIP	proto/LanuchResult_toc.h	/^		char lastIP[LASTIPSIZE];$/;"	m	class:LanuchResult_toc
+lastIP	struct/lanuch.h	/^	string lastIP;$/;"	m	struct:Lanuch
+lastLanuch	proto/LanuchResult_toc.h	/^		char lastLanuch[LASTLANUCHSIZE];$/;"	m	class:LanuchResult_toc
+lastlanuch	struct/lanuch.h	/^	string lastlanuch;$/;"	m	struct:Lanuch
+level	struct/shmLog.h	/^	Level level[MAXMSG];	\/\/the message level$/;"	m	struct:shmLogMsg
+logInstance	log/Logger.cpp	/^	Logger *Logger::logInstance;$/;"	m	class:Logger	file:
+logInstance	log/Logger.h	/^	static Logger *logInstance;$/;"	m	class:Logger
+mBroadcast	include/BroadcastInterface.h	/^void mBroadcast(int type,Message *msg,size_t len){$/;"	f
+mExit	log/Logger.h	/^	bool mExit;\/\/to decide the thread should exit$/;"	m	class:Logger
+mLanuchGame	lanuch/mLanuch.h	/^void mLanuchGame(int connfd,string ip,int id){$/;"	f
+m_Assist	struct/PersonData.h	/^	 int m_Assist;$/;"	m	class:PersonData
+m_BeHarm	struct/PersonData.h	/^	 int m_BeHarm;$/;"	m	class:PersonData
+m_Eat	struct/PersonData.h	/^	 int m_Eat;$/;"	m	class:PersonData
+m_GunNum	struct/PersonData.h	/^	 int m_GunNum;	$/;"	m	class:PersonData
+m_HP	struct/PersonData.h	/^	 int m_HP;	$/;"	m	class:PersonData
+m_Harm	struct/PersonData.h	/^	 int m_Harm;$/;"	m	class:PersonData
+m_ID	struct/PersonData.h	/^	 int m_ID;$/;"	m	class:PersonData
+m_KDA	struct/PersonData.h	/^	 int m_KDA;$/;"	m	class:PersonData
+m_Kill	struct/PersonData.h	/^	 int m_Kill;$/;"	m	class:PersonData
+m_LastIP	struct/PersonData.h	/^	 string m_LastIP;$/;"	m	class:PersonData
+m_LastTime	struct/PersonData.h	/^	 string m_LastTime;$/;"	m	class:PersonData
+m_Name	struct/PersonData.h	/^	 string m_Name;$/;"	m	class:PersonData
+m_NullGun	struct/PersonData.h	/^	 int m_NullGun;$/;"	m	class:PersonData
+m_Party	struct/PersonData.h	/^	 int m_Party;$/;"	m	class:PersonData
+main	lanuch/server.cpp	/^int main(){$/;"	f
+main	log/LogProc.cpp	/^int main(int argc,char **argv){$/;"	f
+main	myDB/dbcpp/dbI.cpp	/^int main()$/;"	f
+msg	proto/Chat_tocs.h	/^		char msg[MAX_CHAT_SIZE];$/;"	m	class:Chat_tocs
+msgdata	struct/shmLog.h	/^	char msgdata[MSGSIZE*MAXMSG];	\/\/the actual message$/;"	m	struct:shmLogMsg
+msglen	proto/Chat_tocs.h	/^		int msglen;$/;"	m	class:Chat_tocs
+msgoff	struct/shmLog.h	/^	long msgoff[MAXMSG];	\/\/offset in shared memory of each message$/;"	m	struct:shmLogMsg
+mutex	struct/shmLog.h	/^	sem_t mutex;	\/\/the mutex$/;"	m	struct:shmLogMsg
+name	proto/LanuchResult_toc.h	/^		char name[NAMESIZE];$/;"	m	class:LanuchResult_toc
+name	struct/lanuch.h	/^	string name;$/;"	m	struct:Lanuch
+namelen	proto/LanuchResult_toc.h	/^		int namelen;$/;"	m	class:LanuchResult_toc
+nempty	struct/shmLog.h	/^	sem_t nempty;	\/\/the queue empty semaphore$/;"	m	struct:shmLogMsg
+nput	struct/shmLog.h	/^	int nput;	\/\/index into msgoff[]  for next put$/;"	m	struct:shmLogMsg
+nstored	struct/shmLog.h	/^	sem_t nstored;	\/\/the queue had stored$/;"	m	struct:shmLogMsg
+nullGun	struct/result.h	/^	int nullGun;$/;"	m	struct:Result
+pChatID	proto/ProtoID.h	/^static const int pChatID=1800;$/;"	v
+pLanuchID	proto/ProtoID.h	/^static const int pLanuchID=1000;$/;"	v
+pLanuchResultID	proto/ProtoID.h	/^static const int pLanuchResultID=1001;$/;"	v
+party	proto/LanuchResult_toc.h	/^		int party;$/;"	m	class:LanuchResult_toc
+party	struct/ShmServer.h	/^	int party;	\/\/the user party$/;"	m	struct:shmList
+partyChangeID	proto/ProtoID.h	/^static const int partyChangeID=1600;$/;"	v
+partyID	proto/ProtoID.h	/^static const int partyID=1500;$/;"	v
+paslen	proto/Lanuch_tos.h	/^		int paslen;$/;"	m	class:Lanuch_tos
+passwd	proto/Lanuch_tos.h	/^		char passwd[PASSWDSIZE];$/;"	m	class:Lanuch_tos
+posID	proto/ProtoID.h	/^static const int posID=2000;$/;"	v
+protoID_h_	proto/ProtoID.h	2;"	d
+ptr	log/LogInterface.h	/^static shmLogMsg *ptr;$/;"	v
+r1	proto/GameStart_tocs.h	/^	int r1=0;$/;"	m	class:GameStart_tocs
+r2	proto/GameStart_tocs.h	/^	int r2=0;$/;"	m	class:GameStart_tocs
+r3	proto/GameStart_tocs.h	/^	int r3=0;$/;"	m	class:GameStart_tocs
+r4	proto/GameStart_tocs.h	/^	int r4=0;$/;"	m	class:GameStart_tocs
+r5	proto/GameStart_tocs.h	/^	int r5=0;$/;"	m	class:GameStart_tocs
+reHP	struct/result.h	/^	long reHP;$/;"	m	struct:Result
+red	proto/Party_toc.h	/^	int red[MAX_USER\/2];$/;"	m	class:Party_toc
+red1	struct/resultAll.h	/^	Result red1;$/;"	m	struct:ResultAll
+red2	struct/resultAll.h	/^	Result red2;$/;"	m	struct:ResultAll
+red3	struct/resultAll.h	/^	Result red3;$/;"	m	struct:ResultAll
+red4	struct/resultAll.h	/^	Result red4;$/;"	m	struct:ResultAll
+red5	struct/resultAll.h	/^	Result red5;$/;"	m	struct:ResultAll
+redCounter	struct/ShmServer.h	/^	int redCounter;	\/\/the red party counter$/;"	m	struct:shmNum
+regit	myDB/dbcpp/DBConnections.h	/^	MMYSQL *regit;$/;"	m	class:DBConnections
+regitFile	log/Logger.h	/^	string regitFile="log\/regitLog";$/;"	m	class:Logger
+regitLog	log/Logger.h	/^	ofstream regitLog;$/;"	m	class:Logger
+regitMutex	log/Logger.h	/^	mutex regitMutex;$/;"	m	class:Logger
+regitPasswd	myDB/dbcpp/DBConstant.h	/^const string regitPasswd="regiter";$/;"	v
+regitQueue	log/Logger.h	/^	queue<string> regitQueue;$/;"	m	class:Logger
+regitStart	log/Logger.h	/^	bool regitStart;$/;"	m	class:Logger
+regitStartMutex	log/Logger.h	/^	mutex regitStartMutex;$/;"	m	class:Logger
+regitStartVar	log/Logger.h	/^	condition_variable regitStartVar;$/;"	m	class:Logger
+regitThread	log/Logger.h	/^	thread regitThread;$/;"	m	class:Logger
+regitUser	myDB/dbcpp/DBConstant.h	/^const string regitUser="regitUser";$/;"	v
+regitVar	log/Logger.h	/^	condition_variable regitVar;$/;"	m	class:Logger
+result	myDB/dbcpp/DBConnections.h	/^	MMYSQL *result;$/;"	m	class:DBConnections
+resultFile	log/Logger.h	/^	string resultFile="log\/resultLog";$/;"	m	class:Logger
+resultLog	log/Logger.h	/^	ofstream resultLog;$/;"	m	class:Logger
+resultMutex	log/Logger.h	/^	mutex resultMutex;$/;"	m	class:Logger
+resultPasswd	myDB/dbcpp/DBConstant.h	/^const string resultPasswd = "resulter";$/;"	v
+resultQueue	log/Logger.h	/^	queue<string> resultQueue;$/;"	m	class:Logger
+resultStart	log/Logger.h	/^	bool resultStart;$/;"	m	class:Logger
+resultStartMutex	log/Logger.h	/^	mutex resultStartMutex;$/;"	m	class:Logger
+resultStartVar	log/Logger.h	/^	condition_variable resultStartVar;$/;"	m	class:Logger
+resultThread	log/Logger.h	/^	thread resultThread;$/;"	m	class:Logger
+resultUser	myDB/dbcpp/DBConstant.h	/^const string resultUser = "resultUser";$/;"	v
+resultVar	log/Logger.h	/^	condition_variable resultVar;$/;"	m	class:Logger
+rset	lanuch/server.cpp	/^fd_set rset,allset;$/;"	v
+secure	myDB/dbcpp/DBConnections.h	/^	MMYSQL *secure;$/;"	m	class:DBConnections
+securePasswd	myDB/dbcpp/DBConstant.h	/^const string securePasswd = "securer";$/;"	v
+secureUser	myDB/dbcpp/DBConstant.h	/^const string secureUser = "secureUser";$/;"	v
+server	myDB/dbcpp/DBConstant.h	/^const string server="localhost";$/;"	v
+server_args	myDB/dbcpp/DBConstant.h	/^char* server_args[] = {$/;"	v
+server_groups	myDB/dbcpp/DBConstant.h	/^char* server_groups[] = {$/;"	v
+setting	proto/LanuchResult_toc.h	/^		int setting;$/;"	m	class:LanuchResult_toc
+setting	struct/lanuch.h	/^	int setting;$/;"	m	struct:Lanuch
+shmList	struct/ShmServer.h	/^struct shmList{$/;"	s
+shmLogMsg	struct/shmLog.h	/^struct shmLogMsg{$/;"	s
+shmNum	struct/ShmServer.h	/^struct shmNum{$/;"	s
+shmStatus	struct/ShmServer.h	/^struct shmStatus{$/;"	s
+startProc	lanuch/Connection.h	/^static void startProc(int connfd,string ip){$/;"	f
+status	lanuch/server.cpp	/^shmStatus status;$/;"	v
+status	struct/ShmServer.h	/^	int status;\/\/   1 is in public room,2 is gameing,3 is gameOver$/;"	m	struct:shmStatus
+timelen	proto/LanuchResult_toc.h	/^		int timelen;$/;"	m	class:LanuchResult_toc
+type	proto/Chat_tocs.h	/^		int type;\/\/the party$/;"	m	class:Chat_tocs
+type	struct/shmLog.h	/^	LogType type[MAXMSG];	\/\/the message type$/;"	m	struct:shmLogMsg
+updateParty	publicRoom/UpdateParty.h	/^void updateParty(){$/;"	f
+updatePasswdFile	log/Logger.h	/^	string updatePasswdFile="log\/updatePasswdLog";$/;"	m	class:Logger
+updatePasswdLog	log/Logger.h	/^	ofstream updatePasswdLog;$/;"	m	class:Logger
+updatePasswdMutex	log/Logger.h	/^	mutex updatePasswdMutex;$/;"	m	class:Logger
+updatePasswdQueue	log/Logger.h	/^	queue<string> updatePasswdQueue;$/;"	m	class:Logger
+updatePasswdStart	log/Logger.h	/^	bool updatePasswdStart;$/;"	m	class:Logger
+updatePasswdStartMutex	log/Logger.h	/^	mutex updatePasswdStartMutex;$/;"	m	class:Logger
+updatePasswdStartVar	log/Logger.h	/^	condition_variable updatePasswdStartVar;$/;"	m	class:Logger
+updatePasswdThread	log/Logger.h	/^	thread updatePasswdThread;$/;"	m	class:Logger
+updatePasswdVar	log/Logger.h	/^	condition_variable updatePasswdVar;$/;"	m	class:Logger
+userID	proto/Pos_tocs.h	/^	int userID;$/;"	m	class:Pos_tocs
+user_id	proto/Chat_tocs.h	/^		int user_id;\/\/who send this chat$/;"	m	class:Chat_tocs
+x	proto/Pos_tocs.h	/^	int x;$/;"	m	class:Pos_tocs
+y	proto/Pos_tocs.h	/^	int y;$/;"	m	class:Pos_tocs
+z	proto/Pos_tocs.h	/^	int z;$/;"	m	class:Pos_tocs
+~Logger	log/Logger.cpp	/^	Logger::~Logger(){$/;"	f	class:Logger
