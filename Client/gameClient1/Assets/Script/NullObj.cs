@@ -76,8 +76,6 @@ public class NullObj : MonoBehaviour
                         break;
                     case ProtoID.LanuchResultID: //登录正确
                         {
-                            //开启接收广播的后台线程
-                            Connection.GetInstance().BeginBoardcastSocket();
 
                             LanuchResult_toc temp = (LanuchResult_toc)msg;
                             PersonData.m_ID = temp.account_id;

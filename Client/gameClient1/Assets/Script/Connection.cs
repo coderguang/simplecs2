@@ -20,13 +20,10 @@ namespace Assets.Script {
         private static Connection _instance = null;
         private const string ipAddr = "182.254.233.115";
         private const int port = 9201;//接收本用户的port
-        private const int boardcastPort = 9205;//接收广播的port
 
         private Socket msocket = null;
-        private Socket bsocket = null;//接收广播的socket
 
         private Thread mthread;
-        private Thread bthread;//广播的thread
 
         //所有受到的协议包经过解码之后放到这里，然后主线程中某个一直存在的空对象脚本update里面执行
         public Queue<Message> package = new Queue<Message>();
@@ -53,13 +50,6 @@ namespace Assets.Script {
                 msocket.Close();
             if (mthread.IsAlive)
                 mthread.Abort();
-
-            if (bsocket.Connected)
-                bsocket.Close();
-            if (bthread.IsAlive)
-                bthread.Abort();
-
-
         }
         //在Init中建立普通socket tcp连接
         private void Init() {
@@ -111,56 +101,11 @@ namespace Assets.Script {
 
         }
 
-        //登录正确时，开启接收广播信息的socket，该socket仅负责接收广播消息
-        public void BeginBoardcastSocket() {
-            IPAddress ip = IPAddress.Parse(ipAddr);
-            bsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-            //尝试连接
-            try {
-                /*http://www.xuanyusong.com/archives/1948*/
-                //异步建立TCP
-                IPEndPoint ipEndPoint = new IPEndPoint(ip, boardcastPort);
-                //msocket.Connect(new IPEndPoint(ip, port));
-                //建立成功后会调用connectCallBack方法
-                IAsyncResult result = bsocket.BeginConnect(ipEndPoint, new AsyncCallback(mconnectCallBack), bsocket);
-
-                //超时检测
-                bool success = result.AsyncWaitHandle.WaitOne(10000, true);
-                if (success) {
-                    GameLog.Log(Log.GameLogLevel.INFO, Log.GameLogType.Conect, "异步广播socket任务开启..");
-
-                    //开启线程接收数据
-                    /**先调好协议，传输时不会出现bug(协议数据的后面会有莫名的字符)再说**/
-                    /**仅在调试下才会出现该bug，build之后该bug消失**/
-                    bthread = new Thread(new ThreadStart(mReceive));
-                    bthread.IsBackground = true;
-                    bthread.Start();
-
-                } else {
-                    //关闭socket
-                    if (bsocket != null && bsocket.Connected) {
-                        bsocket.Shutdown(SocketShutdown.Both);
-                        bsocket.Close();
-                    }
-                    bsocket = null;
-                    GameLog.Log(Log.GameLogLevel.ERROR, Log.GameLogType.Conect, "广播socket连接服务器超时..");
-                }
-            } catch {
-                GameLog.Log(Log.GameLogLevel.ERROR, Log.GameLogType.Conect, "广播socket出现异常，连接服务器失败..");
-            }
-        }
-
-
+    
 
         public void mconnectCallBack(IAsyncResult asyncConnect) {
             GameLog.Log(Log.GameLogLevel.INFO, Log.GameLogType.Conect, "建立普通异步连接成功");
         }
-
-        public void bconnectCallBack(IAsyncResult asyncConnect) {
-            GameLog.Log(Log.GameLogLevel.INFO, Log.GameLogType.Conect, "建立广播异步连接成功");
-        }
-
 
         //发送协议
 
@@ -230,41 +175,7 @@ namespace Assets.Script {
 
         }
 
-        //客户端将在后台线程中执行该函数，直到广播协议过来，进行相应的内容
-        public void bReceive() {
-
-            while (true) {
-                //如果和服务器断开了连接，就跳出循环
-                if (!bsocket.Connected && null != bsocket) {
-                    GameLog.Log(Log.GameLogLevel.ERROR, Log.GameLogType.Conect, "广播socket已经和服务器断开连接.....");
-                    bsocket.Close();
-                    break;
-                }
-
-                try {
-                    //首先获取协议的ID
-                    //先获取一整个的包
-                    byte[] buffer = new byte[512];
-                    //bReceive是阻塞的，知道数据过来才会继续执行
-                    int rid = msocket.Receive(buffer);
-                    if (rid <= 0) {
-                        GameLog.Log(Log.GameLogLevel.INFO, Log.GameLogType.Conect, "广播socket收到错误的包...，客户端主动断开连接....");
-                        bsocket.Close();
-                        break;
-                    }
-
-                    MPack(ref(buffer));
-
-                } catch (Exception e) {
-                    GameLog.Log(Log.GameLogLevel.INFO, Log.GameLogType.Conect, "广播socket get the proto exceptions " + e.Message);
-                    break;
-                }
-
-            }
-
-        }
-
-
+       
 
         //无法由更高层次的转为低层次的类别，该函数无用
         private void AddToPack(ref Message msg) {
