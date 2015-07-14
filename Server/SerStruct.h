@@ -1,7 +1,6 @@
 #ifndef SER_STRUCT_H_
 #define SER_STRUCT_H_
 
-static const int MAX_USER=10;
 class SerNum{
 	public:
 		int counter;
