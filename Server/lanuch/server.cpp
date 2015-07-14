@@ -1,128 +1,104 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
-#include "NetConstant.h"
-#include "../../ComLib/linuxLib/linHead.h"
+#include "../../ComLib/linuxLib/linComNet.h"
+#include "../../ComLib/linuxLib/Func.h"
 #include "../SerStruct.h"
-#include <strings.h>
-#include <sys/socket.h>
-#include <sys/types.h>
+#include "config.h"
+#include <iostream>
+#include <stdlib.h>
+#include <string.h>
+#include <string>
 #include <arpa/inet.h>
-/**
- *this is the server main process
- *all user process are fork from this process
- *after fork from this ,child process do it's own things
- *author:coderguagn
- *date:2015/07/06
- */
-
+#include <sys/types.h>
+#include <sys/socket.h>
+using namespace std;
 
 SerList client[MAX_USER];
 SerNum clientNum;
 SerStatus gameStatus;
 
-int main(int argc,char **argv){
-	int maxfd,listenfd,sockfd,connfd;	//the  listen  fd
-	int sel[FD_SETSIZE];
-	fd_set rset,allset;
-	int nready;
-	
-	ssize_t n;
-	socklen_t clilen;
 
-	struct sockaddr_in cliaddr;	//client addr
-	struct sockaddr_in servaddr;	//server addr
+int main(int argc,char **argv){
+	int i,maxfd,sockfd,listenfd,connfd;
+	int nready;
+	ssize_t n;
+	fd_set rset,allset;
+	socklen_t clilen;
 	
+	struct sockaddr_in cliaddr;
+	struct sockaddr_in servaddr;
 	
 	listenfd=Socket(AF_INET,SOCK_STREAM,0);
 	
 	bzero(&servaddr,sizeof(servaddr));
-	
+
 	servaddr.sin_family=AF_INET;
 	servaddr.sin_port=htons(PORT);
 	servaddr.sin_addr.s_addr=INADDR_ANY;
 
-	
 	Bind(listenfd,(struct sockaddr*)&servaddr,sizeof(servaddr));
+
+	Listen(listenfd,10);
 	
-	Listen(listenfd,BACKLOG);
+	maxfd=listenfd; //initialize
+
 	
-	maxfd=listenfd;
-	
-	for(int i=0;i<MAX_USER;i++){
+	for(i=0;i<MAX_USER;i++){
 		client[i].connfd=-1;
 		client[i].id=-1;
-		client[i].party=-1;	
+		client[i].party=-1;
 	}
-	for(int i=0;i<FD_SETSIZE;i++){
-		sel[i]=-1;
-	}
-
+	
 	FD_ZERO(&allset);
 	FD_SET(listenfd,&allset);
 
 	for(;;){
 		rset=allset;
 		nready=Select(maxfd+1,&rset,NULL,NULL,NULL);
-
-		if(FD_ISSET(listenfd,&rset)){//new connection
+	
+		if(FD_ISSET(listenfd,&rset)){//new client connecton
 			clilen=sizeof(cliaddr);
-			connfd=Accept(listenfd,(struct sockaddr*)&cliaddr,&clilen);
-			
-			int i;
+			connfd=Accept(listenfd,(struct sockaddr *)&cliaddr,&clilen);
+
 			for(i=0;i<MAX_USER;i++){
 				if(client[i].connfd<0){
-					client[i].connfd=connfd;
-					cout<<"connfd="<<connfd<<"  is connecting"<<endl;
+					cout<<"socket="<<connfd<<" connected!"<<endl;
+					client[i].connfd=connfd;//save the new sockfd
 					break;
 				}
 			}
-			
 			if(i==MAX_USER){
-				cout<<"sockfd is full"<<endl;
+				cout<<"sockfd set full!"<<endl;
 			}
-
-			FD_SET(connfd,&allset);//add new conn to set
-		
+			FD_SET(connfd,&allset);//add new to set
+			if(connfd>maxfd){
+				maxfd=connfd;//for select
+			}
 			if(nready<=0){
-				continue;
+				continue; //no more readable
 			}
 
-		}	
-
+	
+		}
 		
-		//get data
-		for(int i=0;i<MAX_USER;i++){
+		for(i=0;i<MAX_USER;i++){//check all clients for data
 			if((sockfd=client[i].connfd)<0){
 				continue;
 			}
-			
 			if(FD_ISSET(sockfd,&rset)){
-				int id=0;
-				int nread;
-				if((nread=Read(sockfd,&id,4))==0){
-					Close(sockfd);
+				int id;
+				if((n=Read(sockfd,&id,4))==0){
+					cout<<"socket="<<sockfd<<" is disconnect..."<<endl;
+					close(sockfd);//connection closed by client
 					FD_CLR(sockfd,&allset);
-					cout<<"socket = "<<client[i].connfd<<" is disconnect.."<<endl;
 					client[i].connfd=-1;
 				}else{
-					cout<<"get the msg ,id="<<id<<endl;
+					//cout<<"get the msg:"<<buf<<endl;
+					cout<<"get the id="<<id<<endl;
 				}
-			}
-			if(nready<=0){
-				break;
+				if(nready<=0){
+					break;
+				}
+			
 			}
 		}
-	
-
-
-
 	}
-	
-
-
-	
-		
-
 }
-
