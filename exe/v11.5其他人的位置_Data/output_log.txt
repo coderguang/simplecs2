@@ -14,16 +14,24 @@ Platform assembly: E:\simplecs2\exe\v11.5其他人的位置_Data\Managed\Assembl
 Loading E:\simplecs2\exe\v11.5其他人的位置_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: E:\simplecs2\exe\v11.5其他人的位置_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
 Loading E:\simplecs2\exe\v11.5其他人的位置_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
-- Completed reload, in  0.612 seconds
+- Completed reload, in  0.059 seconds
 desktop: 1366x768 60Hz; virtual: 3286x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: E:\simplecs2\exe\v11.5其他人的位置_Data\Managed\System.dll (this message is harmless)
+Info  建立普通异步连接成功
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
 Info  异步普通socket任务开启..
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
-Info  建立普通异步连接成功
+Info  LanuchLog:登录 account=sg  passwd=sg
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Info  Assets.Script.Proto.Lanuch_tos proto send success!protoID=1000
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
