@@ -1,5 +1,4 @@
-#include "../../ComLib/linuxLib/linComNet.h"
-#include "../../ComLib/linuxLib/Func.h"
+#include "../../../ComLib/linuxLib/linHead.h"
 #include "../SerStruct.h"
 #include "../ProtoHandle.h"
 #include "config.h"
