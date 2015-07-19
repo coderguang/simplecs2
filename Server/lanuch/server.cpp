@@ -1,6 +1,7 @@
 #include "../../ComLib/linuxLib/linComNet.h"
 #include "../../ComLib/linuxLib/Func.h"
 #include "../SerStruct.h"
+#include "../ProtoHandle.h"
 #include "config.h"
 #include <iostream>
 #include <stdlib.h>
@@ -93,6 +94,8 @@ int main(int argc,char **argv){
 				}else{
 					//cout<<"get the msg:"<<buf<<endl;
 					cout<<"get the id="<<id<<endl;
+					ProtoHandle(id,sockfd);
+
 				}
 				if(nready<=0){
 					break;
