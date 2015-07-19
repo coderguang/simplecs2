@@ -13,7 +13,7 @@
 #include "../../struct/strResultAll.h"
 #include "../../log/LogInterface.h"
 #include "DBConstant.h"
-#include "../../../ComLib/linuxLib/linHead.h"
+#include "../../../../ComLib/linuxLib/linHead.h"
 
 using namespace std;
 
