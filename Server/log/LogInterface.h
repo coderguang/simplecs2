@@ -1,7 +1,6 @@
 #ifndef LOG_INTERFACE_H_
 #define LOG_INTERFACE_H_
 #include <unistd.h>
-#include <string.h>
 #include <semaphore.h>
 #include <sys/types.h>
 #include <sys/mman.h>

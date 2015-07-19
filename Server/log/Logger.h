@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "../../ComLib/linuxLib/linHead.h"
+#include "../../../ComLib/linuxLib/linHead.h"
 #include <mutex>
 #include <condition_variable>
 #include <queue>

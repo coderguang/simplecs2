@@ -13,7 +13,7 @@
 #include <mysql.h>
 #include <string>
 using namespace std;
-
+/**
 #ifdef _cpluscplus
 extern "c"{
 char* server_args[] = {
@@ -29,20 +29,21 @@ char* server_groups[] = {
 };
 }
 #endif
-/**
-char* server_args[] = {
+*/
+
+static char* server_args[] = {
 	"this program",
 	"--datadir=.",
 	"--key_buffer_size=32M"
 };
-char* server_groups[] = {
+static char* server_groups[] = {
 	"embedded",
 	"server",
 	"this_program_SERVER",
 	(char*)NULL
 };
 
-*/
+
 
 //MSQL struct 
 struct MMYSQL{
