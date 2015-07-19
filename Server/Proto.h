@@ -3,6 +3,10 @@
  */
 #ifndef PROTO_H_
 #define PROTO_H_
+#include "ProtoID.h"
+#include <string.h>
+#include <string>
+#include "lanuch/config.h"
 
 /**
  *all Message proto base on this class
@@ -64,7 +68,7 @@ public:
 			error_code=0;
 		}
 
-		LanuchResult_toc(string n,string lastTime,string lastip,int s,int a_id){
+		LanuchResult_toc(std::string n,std::string lastTime,std::string lastip,int s,int a_id){
 				id=pLanuchResultID;
 				namelen=n.length();
 				memcpy(name,n.c_str(),n.length()+1);	
@@ -92,7 +96,7 @@ public:
 			error_code=0;
 		}
 		
-		Chat_tocs(int uid,int t,string ms){
+		Chat_tocs(int uid,int t,std::string ms){
 			id=pChatID;
 			error_code=0;
 			user_id=uid;
