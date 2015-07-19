@@ -3,19 +3,19 @@
 #include "strResult.h"
 
 struct strResultAll{
-	Result red1;
-	Result red2;
-	Result red3;
-	Result red4;
-	Result red5;
+	strResult red1;
+	strResult red2;
+	strResult red3;
+	strResult red4;
+	strResult red5;
 
-	Result blue1;
-	Result blue2;
-	Result blue3;
-	Result blue4;
-	Result blue5;
+	strResult blue1;
+	strResult blue2;
+	strResult blue3;
+	strResult blue4;
+	strResult blue5;
 
-}
+};
 
 
 

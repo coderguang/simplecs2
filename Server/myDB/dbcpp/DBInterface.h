@@ -37,12 +37,12 @@ void ExitLanuch(int id){
 }
 
 
-int InsertResult(ResultAll &result){
+int InsertResult(strResultAll &result){
 	int rNum=DBConnections::GetInstance()->InsertResult(result);
 	return rNum;
 }
 
-static int GetResult(int resultID,ResultAll &result){
+static int GetResult(int resultID,strResultAll &result){
 	int rNum=DBConnections::GetInstance()->GetResult(resultID,result);
 	return rNum;
 }

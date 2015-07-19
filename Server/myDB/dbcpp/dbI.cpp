@@ -35,23 +35,23 @@ int main()
 	cout<<"lan.lastIP="<<lan.lastIP<<endl;
 	cout<<"lan.setting="<<lan.setting<<endl;
 	**/
-	Result red1={1001,10,2,3,12545,1654,840,10};
-	Result red2={1002,15,4,6,13745,2634,964,20};
-	Result red3={1003,20,6,9,15745,3754,1040,30};
-	Result red4={1004,25,8,12,16545,48654,1140,40};
-	Result red5={1005,30,10,15,17545,58654,1240,50};
-	Result blue1={1006,35,12,18,18145,68654,1340,60};
-	Result blue2={1007,40,14,21,19545,78654,1440,70};
-	Result blue3={1008,45,16,24,20545,88654,1540,80};
-	Result blue4={1009,50,18,27,21545,98654,1640,90};
-	Result blue5={1010,55,20,30,22545,10654,1740,100};
+	strResult red1={1001,10,2,3,12545,1654,840,10};
+	strResult red2={1002,15,4,6,13745,2634,964,20};
+	strResult red3={1003,20,6,9,15745,3754,1040,30};
+	strResult red4={1004,25,8,12,16545,48654,1140,40};
+	strResult red5={1005,30,10,15,17545,58654,1240,50};
+	strResult blue1={1006,35,12,18,18145,68654,1340,60};
+	strResult blue2={1007,40,14,21,19545,78654,1440,70};
+	strResult blue3={1008,45,16,24,20545,88654,1540,80};
+	strResult blue4={1009,50,18,27,21545,98654,1640,90};
+	strResult blue5={1010,55,20,30,22545,10654,1740,100};
 
-	ResultAll ra={red1,red2,red3,red4,red5,blue1,blue2,blue3,blue4,blue5};
+	strResultAll ra={red1,red2,red3,red4,red5,blue1,blue2,blue3,blue4,blue5};
 	int ra1=InsertResult(ra);
 	cout<<"resultAll1="<<ra1<<endl;
 
 	
-	ResultAll r2;
+	strResultAll r2;
 	int gresult2=GetResult(100,r2);
 	cout<<"gesult2="<<gresult2<<endl;
 	int gresult3=GetResult(1002,r2);

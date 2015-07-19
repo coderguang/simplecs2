@@ -13,7 +13,7 @@
 #include "../../struct/strResultAll.h"
 #include "../../log/LogInterface.h"
 #include "DBConstant.h"
-#include "../../../../ComLib/linuxLib/linComNet.h"
+#include "../../../ComLib/linuxLib/linHead.h"
 
 using namespace std;
 
@@ -85,9 +85,9 @@ public:
 	int ExitLanuch(int id);
 	//for InsertResult 
 	//need  update the accounts flag,result*
-	int InsertResult(struct ResultAll &resultA);
+	int InsertResult(struct strResultAll &resultA);
 	//for getResult
-	int GetResult(int resultID,struct ResultAll &resultA);
+	int GetResult(int resultID,struct strResultAll &resultA);
 	
 	void Close();
 };

@@ -29,6 +29,20 @@ char* server_groups[] = {
 };
 }
 #endif
+/**
+char* server_args[] = {
+	"this program",
+	"--datadir=.",
+	"--key_buffer_size=32M"
+};
+char* server_groups[] = {
+	"embedded",
+	"server",
+	"this_program_SERVER",
+	(char*)NULL
+};
+
+*/
 
 //MSQL struct 
 struct MMYSQL{
