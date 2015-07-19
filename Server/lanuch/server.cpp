@@ -18,6 +18,9 @@ SerStatus gameStatus;
 
 
 int main(int argc,char **argv){
+
+	InitFunMap();
+
 	int i,maxfd,sockfd,listenfd,connfd;
 	int nready;
 	ssize_t n;
