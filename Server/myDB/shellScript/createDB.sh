@@ -1,5 +1,5 @@
 #connect to mysql and redirect the stdout and stderr 
-mysql -u root -pmaildb <<EOF 2>log 1>info
+mysql -u root -pyumdata@com -h 10.66.140.225 <<EOF 2>log 1>info
 
 #test 
 #show databases;

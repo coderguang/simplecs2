@@ -51,7 +51,7 @@ struct MMYSQL{
 	int flag;//flag is it free,0 is free,1 is busy 
 };
 //common settings
-const string server="localhost";
+const string server="10.66.140.225";
 const string database = "simplecs";
 
 //conn sum,now all connections max sum is 15
